@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font: 1.6rem / 1.5 'Lato', sans-serif;
+  margin: 0;
+  overflow-y: scroll;
+}
