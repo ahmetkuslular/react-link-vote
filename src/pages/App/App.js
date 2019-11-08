@@ -4,6 +4,8 @@ import styled, { ThemeProvider } from 'styled-components';
 import Header from 'layouts/Header';
 
 import themes from 'themes';
+import Box from 'components/Box';
+import SubmitLinkButton from 'components/SubmitLinkButton';
 
 function App() {
   return (
@@ -11,6 +13,9 @@ function App() {
       <Container>
         <Wrapper>
           <Header />
+          <Content>
+            <SubmitLinkButton />
+          </Content>
         </Wrapper>
       </Container>
     </ThemeProvider>
@@ -30,7 +35,12 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   flex: 1;
-  max-width: 1000px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 20px;
+`;
+
+const Content = styled.div`
+  flex: 1;
+  margin-top: 20px;
 `;
