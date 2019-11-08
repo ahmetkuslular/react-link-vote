@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgb(236, 236, 236);
+  background: ${props => props.theme.boxColor};
   border: 1px solid rgb(151, 151, 151);
   border-radius: 5px;
 `;

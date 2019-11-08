@@ -15,16 +15,18 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  border: 1px solid rgb(238, 238, 238);
+  border: 1px solid   ${props => props.theme.borderColor};
   border-radius: 5px;
-  background: rgb(247, 247, 247);
+  background: ${props => props.theme.buttonColor};
   padding: 10px;
+  color: ${props => props.theme.label};
 `;
 
 const Label = styled.label`
   font-size: 30px;
   font-weight: bold;
   margin-left: 20px;
+  color: ${props => props.theme.label};
 `;
 
 export default SubmitLinkButton;

@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import logo from './hepsiburada-logo.png';
+import MoonButton from '../components/MoonButton';
 
-function Header() {
-
+function Header({ changeTheme, theme }) {
   return (
     <Container>
       <LogoWrapper>
         <Image src={logo} />
       </LogoWrapper>
+      <MoonButton onClick={changeTheme} theme={theme} />
       <AppName>
         <b>Link</b>Vote Challenge
       </AppName>
@@ -23,7 +24,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid gray;
-  padding:10px;
+  padding: 10px;
 `;
 
 const LogoWrapper = styled.div`
@@ -41,4 +42,5 @@ const AppName = styled.label`
   justify-content: flex-end;
   font-size: 30px;
   font-weight: 300;
+  color: ${props => props.theme.label};
 `;
