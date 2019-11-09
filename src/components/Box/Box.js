@@ -11,8 +11,8 @@ function Box({ label, value }) {
 }
 
 const Wrapper = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,13 +25,15 @@ const Wrapper = styled.div`
 const Value = styled.div`
   font-weight: bold;
   font-size: 40px;
-  left: 0;
+  color: ${props => props.theme.label};
+ 
 `;
 
 const Label = styled.div`
   font-weight: 100;
   font-size: 15px;
   text-transform: uppercase;
+  color: ${props => props.theme.label};
 `;
 
 export default Box;

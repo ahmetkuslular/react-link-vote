@@ -5,8 +5,9 @@ import SubmitLinkButton from 'components/SubmitLinkButton';
 import Header from 'layouts/Header';
 
 import themes from 'themes';
+import List from "../../components/List";
 
-class App extends Component {
+class Home extends Component {
   state = {
     theme: 'light',
   };
@@ -24,9 +25,12 @@ class App extends Component {
         <Container>
           <Wrapper>
             <Header changeTheme={this.changeTheme} theme={theme} />
-            <Content>
-              <SubmitLinkButton />
-            </Content>
+            <ContentWrapper>
+              <Content>
+                <SubmitLinkButton />
+                <List/>
+              </Content>
+            </ContentWrapper>
           </Wrapper>
         </Container>
       </ThemeProvider>
@@ -34,7 +38,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;
 
 const Container = styled.div`
   display: flex;
@@ -43,17 +47,25 @@ const Container = styled.div`
   position: absolute;
   justify-content: center;
   background-color: ${props => props.theme.background};
-  transition: background-color .5s ease;
+  transition: background-color 0.5s ease;
 `;
 
 const Wrapper = styled.div`
   flex: 1;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   max-width: 1140px;
   margin: 0 auto;
   padding: 20px;
 `;
 
-const Content = styled.div`
-  flex: 1;
+const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
+`;
+
+const Content = styled.div`
+  width: 500px;
 `;

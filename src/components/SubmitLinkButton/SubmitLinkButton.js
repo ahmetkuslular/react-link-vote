@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   color: ${props => props.theme.label};
 `;
 
-const Label = styled.label`
+const Label = styled.h2`
   font-size: 30px;
   font-weight: bold;
   margin-left: 20px;
