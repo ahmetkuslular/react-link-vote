@@ -1,11 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import styled, { keyframes } from 'styled-components';
 
-const Themes = {
-  LIGHT: 'light',
-  DARK: 'dark',
-};
 function MoonButton({ theme = 'light', onClick }) {
   return (
     <Container onClick={onClick}>

@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {
-  CSSTransition,
-  TransitionGroup
-} from 'react-transition-group';
-
-import Home from './Home/Home';
-import AddLink from './AddLink';
 import styled, { ThemeProvider } from 'styled-components';
-import themes from '../themes';
-import Header from '../layouts/Header';
+
+import LinkList from 'pages/LinkList';
+import AddLink from 'pages/AddNewLink';
+
+import themes from 'themes';
+import Header from 'layouts/Header';
+import { Routes, Themes as ThemeList } from 'Constants';
 
 class App extends Component {
   state = {
-    theme: 'light',
+    theme: ThemeList.LIGHT,
   };
 
   changeTheme = () => {
     this.setState(state => ({
-      theme: state.theme === 'light' ? 'dark' : 'light',
+      theme: state.theme === ThemeList.LIGHT ? ThemeList.DARK : ThemeList.LIGHT,
     }));
   };
 
@@ -34,8 +32,8 @@ class App extends Component {
               <Content>
                 <Router>
                   <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/addLink" component={AddLink} />
+                    <Route exact path={Routes.LINK_LIST} component={LinkList} />
+                    <Route path={Routes.ADD_NEW_LINK} component={AddLink} />
                   </Switch>
                 </Router>
               </Content>

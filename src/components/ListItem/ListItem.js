@@ -40,7 +40,7 @@ const Container = styled.div`
   &:hover {
     border: 1px solid ${props => props.theme.borderColor};
     border-radius: 5px;
-    background: ${props => props.theme.hoverColor};
+    background: ${props => props.theme.boxHoverColor};
   }
 `;
 

@@ -7,10 +7,11 @@ const light = {
   borderColor: '#eeeeee',
   itemBorder: '#fff',
   voteColor: '#cac8c8',
-  hoverColor: '#f7f7f7',
+  boxHoverColor: '#f7f7f7',
   deleteIcon: '#F73B5E',
   upVote: '#61C25E',
-  downVote: '#F73B5E'
+  downVote: '#F73B5E',
+  linkHoverColor: '#f18902'
 };
 
 const dark = {
@@ -22,10 +23,11 @@ const dark = {
   borderColor: '#18161d',
   itemBorder: '#2d2938',
   voteColor: '#cac8c8',
-  hoverColor: '#2d2938',
+  boxHoverColor: '#2d2938',
   deleteIcon: '#F73B5E',
   upVote: '#61C25E',
-  downVote: '#F73B5E'
+  downVote: '#F73B5E',
+  linkHoverColor: '#f18902'
 };
 
 const themes = {

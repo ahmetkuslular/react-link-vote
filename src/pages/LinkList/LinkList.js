@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled, { ThemeProvider } from 'styled-components';
 
 import SubmitLinkButton from 'components/SubmitLinkButton';
-import Header from 'layouts/Header';
+import List from 'components/List';
 
 import { fetchLinks } from 'store/links/actions';
 
-import themes from 'themes';
-import List from 'components/List';
 
-class Home extends Component {
+class LinkList extends Component {
   componentDidMount() {
     this.props.fetchLinks();
   }
@@ -33,7 +30,7 @@ class Home extends Component {
     } = this.props;
 
     return (
-      <Container>
+      <div>
         <SubmitLinkButton />
         <List
           data={data}
@@ -41,7 +38,7 @@ class Home extends Component {
           downVote={this.downVote}
           deleteItem={this.deleteItem}
         />
-      </Container>
+      </div>
     );
   }
 }
@@ -53,8 +50,5 @@ const mapStateToProps = ({ links }) => ({
 export default connect(
   mapStateToProps,
   { fetchLinks },
-)(Home);
+)(LinkList);
 
-const Container = styled.div`
-  width: 500px;
-`;

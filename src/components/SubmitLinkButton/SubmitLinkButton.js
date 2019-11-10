@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Box from '../Box';
 import { Link } from 'react-router-dom';
 
-function SubmitLinkButton({ history }) {
+import { Routes } from 'Constants';
+import Box from 'components/Box';
+
+function SubmitLinkButton() {
   return (
-    <Wrapper to="/addLink">
+    <Wrapper to={Routes.ADD_NEW_LINK}>
       <Box value="+" />
       <Label>SUBMIT A LINK</Label>
     </Wrapper>
