@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled, { ThemeProvider } from 'styled-components';
 
 import SubmitLinkButton from 'components/SubmitLinkButton';
 import Header from 'layouts/Header';
 
+import { fetchLinks } from 'store/links/actions';
+
 import themes from 'themes';
-import List from "../../components/List";
+import List from 'components/List';
 
 class Home extends Component {
   state = {
     theme: 'light',
   };
+
+  componentDidMount() {
+    this.props.fetchLinks();
+  }
 
   changeTheme = () => {
     this.setState(state => ({
@@ -18,8 +25,25 @@ class Home extends Component {
     }));
   };
 
+  upVote = item => {
+    console.log('UP VOTE', item);
+  };
+
+  downVote = item => {
+    console.log('DOWN VOTE', item);
+  };
+
+  deleteItem = item => {
+    console.log('DELETE VOTE', item);
+  };
+
   render() {
     const { theme } = this.state;
+    const {
+      links: { data },
+    } = this.props;
+
+    console.log('DATA', data);
     return (
       <ThemeProvider theme={themes[theme]}>
         <Container>
@@ -28,7 +52,12 @@ class Home extends Component {
             <ContentWrapper>
               <Content>
                 <SubmitLinkButton />
-                <List/>
+                <List
+                  data={data}
+                  upVote={this.upVote}
+                  downVote={this.downVote}
+                  deleteItem={this.deleteItem}
+                />
               </Content>
             </ContentWrapper>
           </Wrapper>
@@ -38,7 +67,14 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = ({ links }) => ({
+  links,
+});
+
+export default connect(
+  mapStateToProps,
+  { fetchLinks },
+)(Home);
 
 const Container = styled.div`
   display: flex;

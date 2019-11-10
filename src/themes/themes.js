@@ -21,7 +21,7 @@ const dark = {
   buttonColor: '#2d2938',
   borderColor: '#18161d',
   itemBorder: '#2d2938',
-  voteColor: '#f18902',
+  voteColor: '#cac8c8',
   hoverColor: '#2d2938',
   deleteIcon: '#F73B5E',
   upVote: '#61C25E',

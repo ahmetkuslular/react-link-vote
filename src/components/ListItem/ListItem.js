@@ -3,11 +3,11 @@ import styled, { withTheme } from 'styled-components';
 import Box from '../Box';
 import { UpIcon, DownIcon, DeleteIcon } from '../Icons';
 
-function ListItem({ item, theme }) {
+function ListItem({ item, upVote, downVote, deleteItem, theme }) {
   return (
     <Container>
-      <DeleteButton>
-        <DeleteIcon width={25} height={25} color={theme.deleteIcon} />
+      <DeleteButton onClick={() => deleteItem(item)}>
+        <DeleteIcon width={25} height={25} color={theme.deleteIcon}/>
       </DeleteButton>
       <Box label="POINTS" value="6" />
       <Content>
@@ -16,10 +16,10 @@ function ListItem({ item, theme }) {
           <Url>({item.url})</Url>
         </Info>
         <ActionButtons>
-          <Vote type="up">
+          <Vote type="up" onClick={() => upVote(item)}>
             <UpIcon /> Up Vote
           </Vote>
-          <Vote type="down">
+          <Vote type="down" onClick={() => downVote(item)}>
             <DownIcon /> Down Vote
           </Vote>
         </ActionButtons>

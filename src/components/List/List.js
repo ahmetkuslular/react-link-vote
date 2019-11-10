@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import data from './data';
 import ListItem from '../ListItem';
 
-function List() {
+function List({ data, ...rest }) {
   return (
     <Container>
       {data.map((item, index) => (
-        <ListItem key={index} item={item} />
+        <ListItem key={index} item={item} {...rest} />
       ))}
     </Container>
   );
