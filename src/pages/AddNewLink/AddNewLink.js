@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+import toastr from 'toastr';
 
 import BackLink from 'components/BackLink';
 import Input from 'components/Input';
-import Button from '../../components/Button';
+import Button from 'components/Button';
+
+import { addNewLink } from 'store/links/actions';
+
+import 'toastr/build/toastr.min.css';
+import './style.css';
+import { message } from '../../utils';
 
 class AddNewLink extends Component {
   state = {
@@ -14,7 +22,7 @@ class AddNewLink extends Component {
   handleOnChange = event => {
     const value = event.target.value;
     const name = event.target.name;
-    console.log({ value, name });
+
     this.setState({
       [name]: value,
     });
@@ -22,8 +30,16 @@ class AddNewLink extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log('Sumbit');
+
+    this.props.addNewLink({
+      ...this.state,
+      id: new Date().getTime(),
+      points: 0,
+    });
+
+    message(`<b>${this.state.name}</b> Eklendi`);
   };
+
   render() {
     const { name, url } = this.state;
     return (
@@ -45,14 +61,17 @@ class AddNewLink extends Component {
             value={url}
             onChange={this.handleOnChange}
           />
-          <Button>ADD</Button>
+          <Button type="submit">ADD</Button>
         </form>
       </Container>
     );
   }
 }
 
-export default AddNewLink;
+export default connect(
+  null,
+  { addNewLink },
+)(AddNewLink);
 
 const Container = styled.div`
   flex: 1;
@@ -63,4 +82,3 @@ const PageName = styled.div`
   color: ${props => props.theme.label};
   margin-bottom: 50px;
 `;
-

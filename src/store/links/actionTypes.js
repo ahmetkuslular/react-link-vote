@@ -1,2 +1,5 @@
 export const FETCH_LINKS = 'FETCH_LINKS';
 
+export const ADD_NEW_LINK = 'ADD_NEW_LINK';
+export const ADD_NEW_LINK_SUCCESS = 'ADD_NEW_LINK_SUCCESS';
+export const ADD_NEW_LINK_ERROR = 'ADD_NEW_LINK_ERROR';

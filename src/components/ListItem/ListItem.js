@@ -9,7 +9,7 @@ function ListItem({ item, upVote, downVote, deleteItem, theme }) {
       <DeleteButton onClick={() => deleteItem(item)}>
         <DeleteIcon width={25} height={25} color={theme.deleteIcon}/>
       </DeleteButton>
-      <Box label="POINTS" value="6" />
+      <Box label="POINTS" value={item.points} />
       <Content>
         <Info>
           <Name>{item.name}</Name>

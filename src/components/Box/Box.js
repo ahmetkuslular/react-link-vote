@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function Box({ label, value }) {
   return (
     <Wrapper>
-      {value && <Value>{value}</Value>}
+      <Value>{value}</Value>
       {label && <Label>{label}</Label>}
     </Wrapper>
   );
@@ -26,7 +26,6 @@ const Value = styled.div`
   font-weight: bold;
   font-size: 40px;
   color: ${props => props.theme.label};
- 
 `;
 
 const Label = styled.div`

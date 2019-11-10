@@ -8,9 +8,6 @@ import { fetchLinks } from 'store/links/actions';
 
 
 class LinkList extends Component {
-  componentDidMount() {
-    this.props.fetchLinks();
-  }
 
   upVote = item => {
     console.log('UP VOTE', item);
@@ -29,6 +26,7 @@ class LinkList extends Component {
       links: { data },
     } = this.props;
 
+    console.log('DATA',data);
     return (
       <div>
         <SubmitLinkButton />

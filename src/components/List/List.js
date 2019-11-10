@@ -7,7 +7,7 @@ function List({ data, ...rest }) {
   return (
     <Container>
       {data.map((item, index) => (
-        <ListItem key={index} item={item} {...rest} />
+        <ListItem key={item.id || index} item={item} {...rest} />
       ))}
     </Container>
   );
