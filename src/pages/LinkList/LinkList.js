@@ -32,7 +32,6 @@ class LinkList extends Component {
     const { link } = this.state;
     this.props.deleteLink(link);
     this.onCloseModal();
-    message(`<b>${link.name}</b> Silindi`);
   };
 
   onShowModal = link => {

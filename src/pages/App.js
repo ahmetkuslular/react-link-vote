@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -7,21 +8,18 @@ import AddLink from 'pages/AddNewLink';
 
 import themes from 'themes';
 import Header from 'layouts/Header';
-import { Routes, Themes as ThemeList } from 'Constants';
+import { Routes} from 'Constants';
+import { changeTheme } from 'store/appSettings/actions';
 
 class App extends Component {
-  state = {
-    theme: ThemeList.LIGHT,
-  };
-
   changeTheme = () => {
-    this.setState(state => ({
-      theme: state.theme === ThemeList.LIGHT ? ThemeList.DARK : ThemeList.LIGHT,
-    }));
+    this.props.changeTheme();
   };
 
   render() {
-    const { theme } = this.state;
+    const {
+      appSettings: { theme },
+    } = this.props;
 
     return (
       <ThemeProvider theme={themes[theme]}>
@@ -45,7 +43,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = ({ appSettings }) => ({
+  appSettings,
+});
+
+export default connect(
+  mapDispatchToProps,
+  { changeTheme },
+)(App);
 
 const Container = styled.div`
   display: flex;

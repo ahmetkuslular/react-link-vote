@@ -1,4 +1,5 @@
 import { ADD_NEW_LINK, FETCH_LINKS, VOTE_LINK, DELETE_LINK } from './actionTypes';
+import { message } from 'utils';
 
 const INITIAL_STATE = {
   data: [],
@@ -21,8 +22,9 @@ function linksReducer(state = INITIAL_STATE, action) {
 }
 
 function addLink(state, action) {
-  const data = [...state.data, action.params];
+  const data = [action.params, ...state.data];
 
+  message(`<b>${action.params.name}</b> Eklendi`);
   return { ...state, data };
 }
 
@@ -44,13 +46,13 @@ function voteLink(state, action) {
 }
 
 function deleteLink(state, action) {
-  console.log('DELETE LINK');
   const temp = [...state.data];
   const link = action.params;
   const data = temp.filter(item => {
     return item.id !== link.id;
   });
 
+  message(`<b>${link.name}</b> Silindi`);
   return { ...state, data };
 }
 

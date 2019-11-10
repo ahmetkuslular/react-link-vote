@@ -37,7 +37,7 @@ class AddNewLink extends Component {
       points: 0,
     });
 
-    message(`<b>${this.state.name}</b> Eklendi`);
+
   };
 
   render() {
