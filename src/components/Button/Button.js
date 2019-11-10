@@ -10,8 +10,9 @@ const StyledButton = styled.button`
   padding: 5px;
   font-weight: bold;
   border-radius: 50px;
-  width: 140px;
+  min-width: 140px;
   float: right;
+  cursor: pointer;
   background: ${props => props.theme.label};
   color: ${props => props.theme.background};
   outline: none;

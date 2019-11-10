@@ -14,6 +14,8 @@ const light = {
   linkHoverColor: '#f18902',
   inputBorderColor: '#222831',
   placeholderColor: '#afb1b3',
+  ok: '#61C25E',
+  cancel: '#F73B5E',
 };
 
 const dark = {
@@ -30,7 +32,9 @@ const dark = {
   upVote: '#61C25E',
   downVote: '#F73B5E',
   linkHoverColor: '#f18902',
-  inputBorderColor: '#afb1b3'
+  inputBorderColor: '#afb1b3',
+  ok: '#61C25E',
+  cancel: '#F73B5E',
 };
 
 const themes = {

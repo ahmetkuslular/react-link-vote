@@ -44,6 +44,7 @@ function voteLink(state, action) {
 }
 
 function deleteLink(state, action) {
+  console.log('DELETE LINK');
   const temp = [...state.data];
   const link = action.params;
   const data = temp.filter(item => {

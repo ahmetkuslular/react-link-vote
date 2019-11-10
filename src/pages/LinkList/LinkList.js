@@ -3,10 +3,17 @@ import { connect } from 'react-redux';
 
 import SubmitLinkButton from 'components/SubmitLinkButton';
 import List from 'components/List';
+import DeleteModal from 'components/DeleteModal';
 
 import { voteLink, deleteLink } from 'store/links/actions';
+import { message } from 'utils';
 
 class LinkList extends Component {
+  state = {
+    showModal: false,
+    link: null,
+  };
+
   upVote = link => {
     this.props.voteLink({
       link,
@@ -21,15 +28,26 @@ class LinkList extends Component {
     });
   };
 
-  deleteItem = item => {
-    this.props.deleteLink(item);
+  deleteItem = () => {
+    const { link } = this.state;
+    this.props.deleteLink(link);
+    this.onCloseModal();
+    message(`<b>${link.name}</b> Silindi`);
+  };
+
+  onShowModal = link => {
+    this.setState({ showModal: true, link });
+  };
+
+  onCloseModal = () => {
+    this.setState({ showModal: false });
   };
 
   render() {
     const {
       links: { data },
     } = this.props;
-
+    const { showModal, link } = this.state;
     return (
       <div>
         <SubmitLinkButton />
@@ -37,7 +55,13 @@ class LinkList extends Component {
           data={data}
           upVote={this.upVote}
           downVote={this.downVote}
-          deleteItem={this.deleteItem}
+          deleteItem={this.onShowModal}
+        />
+        <DeleteModal
+          open={showModal}
+          onOk={this.deleteItem}
+          onClose={this.onCloseModal}
+          linkName={link && link.name}
         />
       </div>
     );
