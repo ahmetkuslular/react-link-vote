@@ -11,7 +11,9 @@ const light = {
   deleteIcon: '#F73B5E',
   upVote: '#61C25E',
   downVote: '#F73B5E',
-  linkHoverColor: '#f18902'
+  linkHoverColor: '#f18902',
+  inputBorderColor: '#222831',
+  placeholderColor: '#afb1b3',
 };
 
 const dark = {
@@ -27,7 +29,8 @@ const dark = {
   deleteIcon: '#F73B5E',
   upVote: '#61C25E',
   downVote: '#F73B5E',
-  linkHoverColor: '#f18902'
+  linkHoverColor: '#f18902',
+  inputBorderColor: '#afb1b3'
 };
 
 const themes = {
