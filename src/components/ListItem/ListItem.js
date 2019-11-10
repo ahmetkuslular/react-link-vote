@@ -1,13 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import Box from '../Box';
 import { UpIcon, DownIcon, DeleteIcon } from '../Icons';
 
-function ListItem({ item }) {
+function ListItem({ item, theme }) {
   return (
     <Container>
       <DeleteButton>
-        <DeleteIcon />
+        <DeleteIcon width={25} height={25} color={theme.deleteIcon} />
       </DeleteButton>
       <Box label="POINTS" value="6" />
       <Content>
@@ -16,10 +16,10 @@ function ListItem({ item }) {
           <Url>({item.url})</Url>
         </Info>
         <ActionButtons>
-          <Vote>
+          <Vote type="up">
             <UpIcon /> Up Vote
           </Vote>
-          <Vote>
+          <Vote type="down">
             <DownIcon /> Down Vote
           </Vote>
         </ActionButtons>
@@ -28,18 +28,19 @@ function ListItem({ item }) {
   );
 }
 
-export default ListItem;
+export default withTheme(ListItem);
 
 const Container = styled.div`
   display: flex;
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
+  position: relative;
+
   &:hover {
     border: 1px solid ${props => props.theme.borderColor};
     border-radius: 5px;
     background: ${props => props.theme.hoverColor};
-    
   }
 `;
 
@@ -76,12 +77,21 @@ const ActionButtons = styled.div`
 const Vote = styled.span`
   flex: 1;
   font-size: 15px;
+  cursor: pointer;
   color: ${props => props.theme.voteColor};
+  &:hover {
+    color: ${props => props.theme[`${props.type}Vote`]};
+  }
 `;
 
 const DeleteButton = styled.div`
   position: absolute;
-  margin-left: 385px;
-  margin-top: -10px;
-  opacity: 1;
+  top: -10px;
+  right: -5px;
+  opacity: 0;
+  cursor: pointer;
+  
+  ${Container}:hover & {
+    opacity: 1;
+  }
 `;

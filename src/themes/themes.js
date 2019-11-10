@@ -7,7 +7,10 @@ const light = {
   borderColor: '#eeeeee',
   itemBorder: '#fff',
   voteColor: '#cac8c8',
-  hoverColor: '#f7f7f7'
+  hoverColor: '#f7f7f7',
+  deleteIcon: '#F73B5E',
+  upVote: '#61C25E',
+  downVote: '#F73B5E'
 };
 
 const dark = {
@@ -18,8 +21,11 @@ const dark = {
   buttonColor: '#2d2938',
   borderColor: '#18161d',
   itemBorder: '#2d2938',
-  voteColor: '#cac8c8',
-  hoverColor: '#2d2938'
+  voteColor: '#f18902',
+  hoverColor: '#2d2938',
+  deleteIcon: '#F73B5E',
+  upVote: '#61C25E',
+  downVote: '#F73B5E'
 };
 
 const themes = {
