@@ -4,21 +4,25 @@ import { connect } from 'react-redux';
 import SubmitLinkButton from 'components/SubmitLinkButton';
 import List from 'components/List';
 
-import { fetchLinks } from 'store/links/actions';
-
+import { voteLink, deleteLink } from 'store/links/actions';
 
 class LinkList extends Component {
-
-  upVote = item => {
-    console.log('UP VOTE', item);
+  upVote = link => {
+    this.props.voteLink({
+      link,
+      voteType: 'up',
+    });
   };
 
-  downVote = item => {
-    console.log('DOWN VOTE', item);
+  downVote = link => {
+    this.props.voteLink({
+      link,
+      voteType: 'down',
+    });
   };
 
   deleteItem = item => {
-    console.log('DELETE VOTE', item);
+    this.props.deleteLink(item);
   };
 
   render() {
@@ -26,7 +30,6 @@ class LinkList extends Component {
       links: { data },
     } = this.props;
 
-    console.log('DATA',data);
     return (
       <div>
         <SubmitLinkButton />
@@ -47,6 +50,5 @@ const mapStateToProps = ({ links }) => ({
 
 export default connect(
   mapStateToProps,
-  { fetchLinks },
+  { voteLink, deleteLink },
 )(LinkList);
-

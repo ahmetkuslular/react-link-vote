@@ -7,5 +7,15 @@ export const fetchLinks = params => ({
 
 export const addNewLink = params => ({
   type: ActionTypes.ADD_NEW_LINK,
-  params
+  params,
+});
+
+export const deleteLink = params => ({
+  type: ActionTypes.DELETE_LINK,
+  params,
+});
+
+export const voteLink = params => ({
+  type: ActionTypes.VOTE_LINK,
+  params,
 });
