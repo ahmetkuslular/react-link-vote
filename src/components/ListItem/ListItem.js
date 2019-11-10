@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Box from '../Box';
-import { UpIcon, DownIcon } from '../Icons';
+import { UpIcon, DownIcon, DeleteIcon } from '../Icons';
 
 function ListItem({ item }) {
   return (
     <Container>
+      <DeleteButton>
+        <DeleteIcon />
+      </DeleteButton>
       <Box label="POINTS" value="6" />
       <Content>
         <Info>
@@ -25,11 +28,19 @@ function ListItem({ item }) {
   );
 }
 
+export default ListItem;
+
 const Container = styled.div`
   display: flex;
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
+  &:hover {
+    border: 1px solid ${props => props.theme.borderColor};
+    border-radius: 5px;
+    background: ${props => props.theme.hoverColor};
+    
+  }
 `;
 
 const Content = styled.div`
@@ -67,4 +78,10 @@ const Vote = styled.span`
   font-size: 15px;
   color: ${props => props.theme.voteColor};
 `;
-export default ListItem;
+
+const DeleteButton = styled.div`
+  position: absolute;
+  margin-left: 385px;
+  margin-top: -10px;
+  opacity: 1;
+`;

@@ -6,7 +6,8 @@ const light = {
   buttonColor: '#f7f7f7',
   borderColor: '#eeeeee',
   itemBorder: '#fff',
-  voteColor: '#cac8c8'
+  voteColor: '#cac8c8',
+  hoverColor: '#f7f7f7'
 };
 
 const dark = {
@@ -17,7 +18,8 @@ const dark = {
   buttonColor: '#2d2938',
   borderColor: '#18161d',
   itemBorder: '#2d2938',
-  voteColor: '#cac8c8'
+  voteColor: '#cac8c8',
+  hoverColor: '#2d2938'
 };
 
 const themes = {
