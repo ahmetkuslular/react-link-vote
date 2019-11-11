@@ -16,6 +16,7 @@ const light = {
   placeholderColor: '#afb1b3',
   ok: '#61C25E',
   cancel: '#F73B5E',
+  hepsiburada: '#f18902',
 };
 
 const dark = {
@@ -35,6 +36,7 @@ const dark = {
   inputBorderColor: '#afb1b3',
   ok: '#61C25E',
   cancel: '#F73B5E',
+  hepsiburada: '#f18902',
 };
 
 const themes = {

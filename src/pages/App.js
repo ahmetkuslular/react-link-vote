@@ -10,6 +10,7 @@ import themes from 'themes';
 import Header from 'layouts/Header';
 import { Routes} from 'Constants';
 import { changeTheme } from 'store/appSettings/actions';
+import NotFound from "./NotFound";
 
 class App extends Component {
   changeTheme = () => {
@@ -32,6 +33,7 @@ class App extends Component {
                   <Switch>
                     <Route exact path={Routes.LINK_LIST} component={LinkList} />
                     <Route path={Routes.ADD_NEW_LINK} component={AddLink} />
+                    <Route component={NotFound} />
                   </Switch>
                 </Router>
               </Content>
