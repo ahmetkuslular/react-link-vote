@@ -6,7 +6,7 @@ import {
   SORT_LINKS,
   CHANGE_PAGE,
 } from './actionTypes';
-import { sortLinks, addLink, voteLink, deleteLink, changePage } from './helpers';
+import { sortLinks, addLink, voteLink, deleteLink, changePage, fetchLinks } from './helpers';
 
 const INITIAL_STATE = {
   data: [],
@@ -20,7 +20,7 @@ const INITIAL_STATE = {
 function linksReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_LINKS:
-      return { ...state };
+      return fetchLinks(state, action);
     case SORT_LINKS:
       return sortLinks(state, action);
     case CHANGE_PAGE:

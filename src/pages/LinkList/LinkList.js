@@ -8,7 +8,7 @@ import DeleteModal from 'components/DeleteModal';
 import Select from 'components/Select';
 import Pagination from 'components/Pagination';
 
-import { voteLink, deleteLink, sortLinks, changePage } from 'store/links/actions';
+import { voteLink, deleteLink, sortLinks, changePage, fetchLinks } from 'store/links/actions';
 
 const filterOptions = [
   { value: 'lastAdded', label: 'Last Added' },
@@ -22,22 +22,16 @@ class LinkList extends Component {
     link: null,
   };
 
-  changePage = (page) => {
+  changePage = page => {
     this.props.changePage(page);
   };
 
   upVote = link => {
-    this.props.voteLink({
-      link,
-      voteType: 'up',
-    });
+    this.props.voteLink({ link, voteType: 'up' });
   };
 
   downVote = link => {
-    this.props.voteLink({
-      link,
-      voteType: 'down',
-    });
+    this.props.voteLink({ link, voteType: 'down' });
   };
 
   deleteItem = () => {
@@ -65,6 +59,8 @@ class LinkList extends Component {
     } = this.props;
     const { showModal, link } = this.state;
 
+    const rowsPerPage = data.slice(currentPage - 1, perPage);
+
     return (
       <div>
         <SubmitLinkButton />
@@ -73,7 +69,7 @@ class LinkList extends Component {
           <Select options={filterOptions} value={orderBy} onChange={this.handleSelectOrder} />
         </FilterArea>
         <List
-          data={data}
+          data={rowsPerPage}
           upVote={this.upVote}
           downVote={this.downVote}
           deleteItem={this.onShowModal}
@@ -99,7 +95,13 @@ const mapStateToProps = ({ links }) => ({
   links,
 });
 
-export default connect(mapStateToProps, { voteLink, deleteLink, sortLinks, changePage })(LinkList);
+export default connect(mapStateToProps, {
+  voteLink,
+  deleteLink,
+  sortLinks,
+  changePage,
+  fetchLinks,
+})(LinkList);
 
 const FilterArea = styled.div`
   margin: 10px;

@@ -1,16 +1,22 @@
 import { message } from '../../utils';
 
+function fetchLinks(state, action) {
+  return { ...state };
+}
+
 function sortLinks(state, action) {
   const data = [...state.data];
-  const orderBy = action.params;
-
+  let orderBy = action && action.params;
+  if (!orderBy) {
+    orderBy = state.orderBy;
+  }
   data.sort((a, b) => {
-    if (orderBy === 'lastAdded') {
-      return b.id - a.id;
+    if (orderBy === 'mostVoted') {
+      return b.points - a.points;
     } else if (orderBy === 'lessVoted') {
       return a.points - b.points;
     } else {
-      return b.points - a.points;
+      return b.id - a.id;
     }
   });
 
@@ -27,7 +33,7 @@ function addLink(state, action) {
   const data = [action.params, ...state.data];
 
   message(`<b>${action.params.name}</b> Eklendi`);
-  return { ...state, data, totalItems: data.length };
+  return sortLinks({ ...state, data, totalItems: data.length });
 }
 
 function voteLink(state, action) {
@@ -43,8 +49,7 @@ function voteLink(state, action) {
       return true;
     }
   });
-
-  return { ...state, data };
+  return sortLinks({ ...state, data });
 }
 
 function deleteLink(state, action) {
@@ -58,4 +63,4 @@ function deleteLink(state, action) {
   return { ...state, data, totalItems: data.length };
 }
 
-export { addLink, sortLinks, deleteLink, voteLink, changePage };
+export { addLink, sortLinks, deleteLink, voteLink, changePage, fetchLinks };

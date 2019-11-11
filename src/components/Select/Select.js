@@ -26,7 +26,6 @@ const Container = styled.div`
   width: 15em;
   height: 2.5em;
   line-height: 2.4;
-  background: #ececec;
   overflow: hidden;
   border-radius: 0.25em;
   &:after {
@@ -35,23 +34,24 @@ const Container = styled.div`
     top: 0;
     right: 0;
     padding: 0 1em;
-    background: #ececec;
+    background: ${props => props.theme.background};
+    color: ${props => props.theme.label};
     cursor: pointer;
     pointer-events: none;
-    border: solid 1px #222831;
+    border: solid 1px ${props => props.theme.label};
   }
 `;
 
 const StyledSelect = styled.select`
   flex: 1;
   padding: 0 0.5em;
-  color: #222831;
+  color: ${props => props.theme.label};
   cursor: pointer;
   appearance: none;
   outline: 0;
   box-shadow: none;
-  border: solid 1px #222831;
-  background: #ececec;
+  border: solid 1px ${props => props.theme.label};
+  background: ${props => props.theme.background};
   font-size: 15px;
 `;
 
