@@ -1,0 +1,2 @@
+*{box-sizing:border-box}:root{scroll-behavior:smooth}body{font-family:Roboto,sans-serif;margin:0;overflow-y:scroll}#toast-container{margin-top:6rem}#toast-container.toast-top-full-width>.toast{max-width:700px}#toast-container>.toast-success{background-color:#e2f8d6;opacity:1;box-shadow:0 0 10px rgba(0,0,0,.2);font-size:30px;color:#6faa64;border:1px solid #6faa64}#toast-container>.toast-success:hover{opacity:1;box-shadow:0 0 10px rgba(0,0,0,.4)}
+/*# sourceMappingURL=main.f1c19445.chunk.css.map */
