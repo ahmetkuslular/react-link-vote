@@ -54,14 +54,16 @@ class LinkList extends Component {
         <FilterSection />
         <List data={rowsPerPage} voteLink={this.voteLink} deleteItem={this.onShowModal} />
 
-        <PaginationWrapper>
-          <Pagination
-            totalItems={totalItems}
-            perPage={perPage}
-            currentPage={currentPage}
-            onChange={this.changePage}
-          />
-        </PaginationWrapper>
+        {totalItems > 0 && (
+          <PaginationWrapper>
+            <Pagination
+              totalItems={totalItems}
+              perPage={perPage}
+              currentPage={currentPage}
+              onChange={this.changePage}
+            />
+          </PaginationWrapper>
+        )}
 
         <DeleteModal
           open={showModal}
