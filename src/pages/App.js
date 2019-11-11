@@ -5,12 +5,13 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import LinkList from 'pages/LinkList';
 import AddLink from 'pages/AddNewLink';
+import NotFound from 'pages/NotFound';
 
 import themes from 'themes';
 import Header from 'layouts/Header';
-import { Routes} from 'Constants';
+import { Routes } from 'Constants';
 import { changeTheme } from 'store/appSettings/actions';
-import NotFound from "./NotFound";
+
 
 class App extends Component {
   changeTheme = () => {
@@ -29,7 +30,7 @@ class App extends Component {
             <Header changeTheme={this.changeTheme} theme={theme} />
             <ContentWrapper>
               <Content>
-                <Router>
+                <Router basename={process.env.PUBLIC_URL}>
                   <Switch>
                     <Route exact path={Routes.LINK_LIST} component={LinkList} />
                     <Route path={Routes.ADD_NEW_LINK} component={AddLink} />
@@ -49,10 +50,7 @@ const mapDispatchToProps = ({ appSettings }) => ({
   appSettings,
 });
 
-export default connect(
-  mapDispatchToProps,
-  { changeTheme },
-)(App);
+export default connect(mapDispatchToProps, { changeTheme })(App);
 
 const Container = styled.div`
   display: flex;

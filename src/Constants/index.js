@@ -1,5 +1,5 @@
 const Routes = {
-  LINK_LIST: '/',
+  LINK_LIST: '/' ,
   ADD_NEW_LINK: '/addNewLink',
 };
 

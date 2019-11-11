@@ -7,6 +7,7 @@ import Input from 'components/Input';
 import Button from 'components/Button';
 
 import { addNewLink } from 'store/links/actions';
+import { message } from '../../utils';
 
 class AddNewLink extends Component {
   state = {
@@ -25,12 +26,28 @@ class AddNewLink extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    const errors = this.formValidation();
+    console.log('error', errors);
+
+    if (errors) {
+      Object.keys(errors).map(key => message(errors[key]));
+      return false;
+    }
 
     this.props.addNewLink({
       ...this.state,
       id: new Date().getTime(),
       points: 0,
     });
+  };
+
+  formValidation = () => {
+    const { name, url } = this.state;
+    let errors = {};
+    if (name === '') errors.name = '<b>Name</b> alanı boş bırakılamaz!';
+    if (url === '') errors.url = '<b>Url</b> alanı boş bırakılamaz!';
+
+    return errors;
   };
 
   render() {
@@ -61,10 +78,7 @@ class AddNewLink extends Component {
   }
 }
 
-export default connect(
-  null,
-  { addNewLink },
-)(AddNewLink);
+export default connect(null, { addNewLink })(AddNewLink);
 
 const Container = styled.div`
   flex: 1;
@@ -77,7 +91,6 @@ const PageName = styled.div`
 `;
 
 const AddButton = styled(Button)`
- 
   &:hover {
     color: ${props => props.theme.ok};
   }
