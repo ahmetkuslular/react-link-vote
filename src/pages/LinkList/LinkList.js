@@ -53,6 +53,7 @@ class LinkList extends Component {
         <Divider />
         <FilterSection />
         <List data={rowsPerPage} voteLink={this.voteLink} deleteItem={this.onShowModal} />
+
         <PaginationWrapper>
           <Pagination
             totalItems={totalItems}
