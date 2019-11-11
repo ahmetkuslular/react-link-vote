@@ -8,12 +8,25 @@ import DeleteModal from 'components/DeleteModal';
 import Select from 'components/Select';
 import Pagination from 'components/Pagination';
 
-import { voteLink, deleteLink, sortLinks, changePage, fetchLinks } from 'store/links/actions';
+import {
+  voteLink,
+  deleteLink,
+  sortLinks,
+  changePage,
+  fetchLinks,
+  changePerPage,
+} from 'store/links/actions';
 
 const filterOptions = [
   { value: 'lastAdded', label: 'Last Added' },
   { value: 'mostVoted', label: 'Most Voted' },
   { value: 'lessVoted', label: 'Less Voted' },
+];
+
+const perPageOptions = [
+  { value: '5', label: '5' },
+  { value: '10', label: '10' },
+  { value: '20', label: '20' },
 ];
 
 class LinkList extends Component {
@@ -53,6 +66,11 @@ class LinkList extends Component {
     this.props.sortLinks(orderBy);
   };
 
+  handleSelectPerPage = event => {
+    const perPage = event.target.value;
+    this.props.changePerPage(perPage);
+  };
+
   render() {
     const {
       links: { data, orderBy, totalItems, currentPage, perPage },
@@ -67,6 +85,7 @@ class LinkList extends Component {
         <Divider />
         <FilterArea>
           <Select options={filterOptions} value={orderBy} onChange={this.handleSelectOrder} />
+          <Select options={perPageOptions} value={perPage} onChange={this.handleSelectPerPage} />
         </FilterArea>
         <List
           data={rowsPerPage}
@@ -100,11 +119,14 @@ export default connect(mapStateToProps, {
   deleteLink,
   sortLinks,
   changePage,
+  changePerPage,
   fetchLinks,
 })(LinkList);
 
 const FilterArea = styled.div`
+  display: flex;
   margin: 10px;
+  justify-content: space-between;
 `;
 
 const Divider = styled.hr`

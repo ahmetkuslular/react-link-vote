@@ -5,8 +5,17 @@ import {
   DELETE_LINK,
   SORT_LINKS,
   CHANGE_PAGE,
+  CHANGE_PER_PAGE,
 } from './actionTypes';
-import { sortLinks, addLink, voteLink, deleteLink, changePage, fetchLinks } from './helpers';
+import {
+  sortLinks,
+  addLink,
+  voteLink,
+  deleteLink,
+  changePage,
+  fetchLinks,
+  changePerPage,
+} from './helpers';
 
 const INITIAL_STATE = {
   data: [],
@@ -25,6 +34,8 @@ function linksReducer(state = INITIAL_STATE, action) {
       return sortLinks(state, action);
     case CHANGE_PAGE:
       return changePage(state, action);
+    case CHANGE_PER_PAGE:
+      return changePerPage(state, action);
     case ADD_NEW_LINK:
       return addLink(state, action);
     case VOTE_LINK:

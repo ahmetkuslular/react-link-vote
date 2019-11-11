@@ -5,4 +5,6 @@ export const VOTE_LINK = 'VOTE_LINK';
 export const DELETE_LINK = 'DELETE_LINK';
 export const SORT_LINKS = 'SORT_LINKS';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
+export const CHANGE_PER_PAGE = 'CHANGE_PER_PAGE';
+
 

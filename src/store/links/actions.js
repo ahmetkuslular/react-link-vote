@@ -30,3 +30,9 @@ export const changePage = params => ({
   type: ActionTypes.CHANGE_PAGE,
   params,
 });
+
+
+export const changePerPage = params => ({
+  type: ActionTypes.CHANGE_PER_PAGE,
+  params,
+});

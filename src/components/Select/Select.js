@@ -23,7 +23,7 @@ function Select({ options, value, onChange }) {
 const Container = styled.div`
   position: relative;
   display: flex;
-  width: 15em;
+  min-width: 10em;
   height: 2.5em;
   line-height: 2.4;
   overflow: hidden;

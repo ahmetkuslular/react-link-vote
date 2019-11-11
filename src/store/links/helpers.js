@@ -29,6 +29,12 @@ function changePage(state, action) {
   return { ...state, currentPage };
 }
 
+function changePerPage(state, action) {
+  const perPage = action.params;
+
+  return { ...state, perPage };
+}
+
 function addLink(state, action) {
   const data = [action.params, ...state.data];
 
@@ -63,4 +69,4 @@ function deleteLink(state, action) {
   return { ...state, data, totalItems: data.length };
 }
 
-export { addLink, sortLinks, deleteLink, voteLink, changePage, fetchLinks };
+export { addLink, sortLinks, deleteLink, voteLink, changePage, fetchLinks, changePerPage };
