@@ -52,12 +52,15 @@ class LinkList extends Component {
         <Divider />
         <FilterSection />
         <List data={rowsPerPage} voteLink={this.voteLink} deleteItem={this.onShowModal} />
-        <Pagination
-          totalItems={totalItems}
-          perPage={perPage}
-          currentPage={currentPage}
-          onChange={this.changePage}
-        />
+        <PaginationWrapper>
+          <Pagination
+            totalItems={totalItems}
+            perPage={perPage}
+            currentPage={currentPage}
+            onChange={this.changePage}
+          />
+        </PaginationWrapper>
+
         <DeleteModal
           open={showModal}
           onOk={this.deleteItem}
@@ -87,4 +90,9 @@ const Divider = styled.hr`
   border-radius: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
+`;
+
+const PaginationWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;

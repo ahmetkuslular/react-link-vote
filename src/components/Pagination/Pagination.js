@@ -45,7 +45,6 @@ function Pagination({ totalItems, perPage, currentPage, onChange }) {
 
 const Container = styled.ul`
   list-style: none;
- 
   padding: 0;
   margin-top: 10px;
 `;
