@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/react-link-vote/static/css/main.f1c19445.chunk.css",
-    "main.js": "/react-link-vote/static/js/main.6e0f18a5.chunk.js",
-    "main.js.map": "/react-link-vote/static/js/main.6e0f18a5.chunk.js.map",
-    "runtime-main.js": "/react-link-vote/static/js/runtime-main.dccb5f0d.js",
-    "runtime-main.js.map": "/react-link-vote/static/js/runtime-main.dccb5f0d.js.map",
-    "static/css/2.00129a64.chunk.css": "/react-link-vote/static/css/2.00129a64.chunk.css",
-    "static/js/2.aad057f5.chunk.js": "/react-link-vote/static/js/2.aad057f5.chunk.js",
-    "static/js/2.aad057f5.chunk.js.map": "/react-link-vote/static/js/2.aad057f5.chunk.js.map",
-    "index.html": "/react-link-vote/index.html",
-    "precache-manifest.255c9ea80a06de907fe16d2ef90b5d29.js": "/react-link-vote/precache-manifest.255c9ea80a06de907fe16d2ef90b5d29.js",
-    "service-worker.js": "/react-link-vote/service-worker.js",
-    "static/css/2.00129a64.chunk.css.map": "/react-link-vote/static/css/2.00129a64.chunk.css.map",
-    "static/css/main.f1c19445.chunk.css.map": "/react-link-vote/static/css/main.f1c19445.chunk.css.map",
-    "static/media/hepsiburada-logo.png": "/react-link-vote/static/media/hepsiburada-logo.c6e794ca.png"
+    "main.css": "/react-link-vote-demo/static/css/main.f1c19445.chunk.css",
+    "main.js": "/react-link-vote-demo/static/js/main.6e0f18a5.chunk.js",
+    "main.js.map": "/react-link-vote-demo/static/js/main.6e0f18a5.chunk.js.map",
+    "runtime-main.js": "/react-link-vote-demo/static/js/runtime-main.a28251e6.js",
+    "runtime-main.js.map": "/react-link-vote-demo/static/js/runtime-main.a28251e6.js.map",
+    "static/css/2.00129a64.chunk.css": "/react-link-vote-demo/static/css/2.00129a64.chunk.css",
+    "static/js/2.e948d964.chunk.js": "/react-link-vote-demo/static/js/2.e948d964.chunk.js",
+    "static/js/2.e948d964.chunk.js.map": "/react-link-vote-demo/static/js/2.e948d964.chunk.js.map",
+    "index.html": "/react-link-vote-demo/index.html",
+    "precache-manifest.16540f651da9fd4b6ec9890cbda6d9c3.js": "/react-link-vote-demo/precache-manifest.16540f651da9fd4b6ec9890cbda6d9c3.js",
+    "service-worker.js": "/react-link-vote-demo/service-worker.js",
+    "static/css/2.00129a64.chunk.css.map": "/react-link-vote-demo/static/css/2.00129a64.chunk.css.map",
+    "static/css/main.f1c19445.chunk.css.map": "/react-link-vote-demo/static/css/main.f1c19445.chunk.css.map",
+    "static/media/hepsiburada-logo.png": "/react-link-vote-demo/static/media/hepsiburada-logo.c6e794ca.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.dccb5f0d.js",
+    "static/js/runtime-main.a28251e6.js",
     "static/css/2.00129a64.chunk.css",
-    "static/js/2.aad057f5.chunk.js",
+    "static/js/2.e948d964.chunk.js",
     "static/css/main.f1c19445.chunk.css",
     "static/js/main.6e0f18a5.chunk.js"
   ]
