@@ -30,7 +30,7 @@ function changePage(state, action) {
 }
 
 function changePerPage(state, action) {
-  const perPage = action.params;
+  const perPage = parseInt(action.params);
 
   return { ...state, perPage };
 }

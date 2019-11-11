@@ -54,7 +54,7 @@ class AddNewLink extends Component {
             value={url}
             onChange={this.handleOnChange}
           />
-          <Button type="submit">ADD</Button>
+          <AddButton type="submit">ADD</AddButton>
         </form>
       </Container>
     );
@@ -74,4 +74,11 @@ const PageName = styled.div`
   font-weight: 800;
   color: ${props => props.theme.label};
   margin-bottom: 50px;
+`;
+
+const AddButton = styled(Button)`
+ 
+  &:hover {
+    color: ${props => props.theme.ok};
+  }
 `;
