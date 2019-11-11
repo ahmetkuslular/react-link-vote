@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import Box from '../Box';
-import { UpIcon, DownIcon, DeleteIcon } from '../Icons';
+
+import Box from 'components/Box';
+import { UpIcon, DownIcon, DeleteIcon } from 'components/Icons';
 
 function ListItem({ item, voteLink, deleteItem, theme }) {
   return (

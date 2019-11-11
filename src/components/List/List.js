@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ListItem from '../ListItem';
+import ListItem from 'components/ListItem';
 
 function List({ data, ...rest }) {
   return (

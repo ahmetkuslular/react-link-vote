@@ -1,4 +1,4 @@
-import { message } from '../../utils';
+import { message } from 'utils';
 
 function fetchLinks(state, action) {
   return { ...state };

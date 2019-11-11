@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import logo from './hepsiburada-logo.png';
-import MoonButton from '../components/MoonButton';
+import MoonButton from 'components/MoonButton';
 
 function Header({ changeTheme, theme }) {
   return (

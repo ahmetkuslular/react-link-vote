@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 import App from 'pages/App';
 
 import { persistor, store } from './store';
+
 import './index.css';
+import 'toastr/build/toastr.min.css';
 
 ReactDOM.render(
   <Provider store={store}>

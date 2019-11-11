@@ -1,7 +1,8 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
 import styled from 'styled-components';
-import Button from '../Button';
+
+import Button from 'components/Button';
 
 function DeleteModal({ linkName, open, onClose, onOk }) {
   return (

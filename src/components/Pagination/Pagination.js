@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { LeftIcon, RightIcon } from '../Icons';
+import { LeftIcon, RightIcon } from 'components/Icons';
 
 function renderPageNumbers(pageCount, perPage, currentPage, onChange) {
   let paginationItems = [];

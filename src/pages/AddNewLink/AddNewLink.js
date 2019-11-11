@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import toastr from 'toastr';
 
 import BackLink from 'components/BackLink';
 import Input from 'components/Input';
 import Button from 'components/Button';
 
 import { addNewLink } from 'store/links/actions';
-
-import 'toastr/build/toastr.min.css';
-import './style.css';
-import { message } from '../../utils';
 
 class AddNewLink extends Component {
   state = {
@@ -36,8 +31,6 @@ class AddNewLink extends Component {
       id: new Date().getTime(),
       points: 0,
     });
-
-
   };
 
   render() {
