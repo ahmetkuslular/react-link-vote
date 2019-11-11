@@ -19,3 +19,9 @@ export const voteLink = params => ({
   type: ActionTypes.VOTE_LINK,
   params,
 });
+
+
+export const sortLinks = params => ({
+  type: ActionTypes.SORT_LINKS,
+  params,
+});

@@ -5,9 +5,9 @@ import styled from 'styled-components';
 import SubmitLinkButton from 'components/SubmitLinkButton';
 import List from 'components/List';
 import DeleteModal from 'components/DeleteModal';
-
-import { voteLink, deleteLink } from 'store/links/actions';
 import Select from 'components/Select';
+
+import { voteLink, deleteLink, sortLinks } from 'store/links/actions';
 
 const filterOptions = [
   { value: 'lastAdded', label: 'Last Added' },
@@ -19,7 +19,6 @@ class LinkList extends Component {
   state = {
     showModal: false,
     link: null,
-    orderBy: 'lastAdded',
   };
 
   upVote = link => {
@@ -52,16 +51,14 @@ class LinkList extends Component {
 
   handleSelectOrder = event => {
     const orderBy = event.target.value;
-    this.setState({
-      orderBy,
-    });
+    this.props.sortLinks(orderBy);
   };
 
   render() {
     const {
-      links: { data },
+      links: { data, orderBy },
     } = this.props;
-    const { showModal, link, orderBy } = this.state;
+    const { showModal, link } = this.state;
 
     return (
       <div>
@@ -93,7 +90,7 @@ const mapStateToProps = ({ links }) => ({
 
 export default connect(
   mapStateToProps,
-  { voteLink, deleteLink },
+  { voteLink, deleteLink, sortLinks },
 )(LinkList);
 
 const FilterArea = styled.div`

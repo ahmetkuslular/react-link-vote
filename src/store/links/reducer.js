@@ -1,15 +1,18 @@
-import { ADD_NEW_LINK, FETCH_LINKS, VOTE_LINK, DELETE_LINK } from './actionTypes';
-import { message } from 'utils';
+import { ADD_NEW_LINK, FETCH_LINKS, VOTE_LINK, DELETE_LINK, SORT_LINKS } from './actionTypes';
+import { sortLinks, addLink, voteLink, deleteLink } from './helpers';
 
 const INITIAL_STATE = {
   data: [],
   loading: false,
+  orderBy: 'lastAdded',
 };
 
 function linksReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_LINKS:
       return { ...state };
+    case SORT_LINKS:
+      return sortLinks(state, action);
     case ADD_NEW_LINK:
       return addLink(state, action);
     case VOTE_LINK:
@@ -19,41 +22,6 @@ function linksReducer(state = INITIAL_STATE, action) {
     default:
       return state;
   }
-}
-
-function addLink(state, action) {
-  const data = [action.params, ...state.data];
-
-  message(`<b>${action.params.name}</b> Eklendi`);
-  return { ...state, data };
-}
-
-function voteLink(state, action) {
-  const data = [...state.data];
-  const link = action.params.link;
-  const voteType = action.params.voteType;
-  data.find(item => {
-    if (item.id === link.id) {
-      if (voteType === 'up') item.points++;
-      else if (item.points > 0) {
-        item.points--;
-      }
-      return true;
-    }
-  });
-
-  return { ...state, data };
-}
-
-function deleteLink(state, action) {
-  const temp = [...state.data];
-  const link = action.params;
-  const data = temp.filter(item => {
-    return item.id !== link.id;
-  });
-
-  message(`<b>${link.name}</b> Silindi`);
-  return { ...state, data };
 }
 
 export default linksReducer;
