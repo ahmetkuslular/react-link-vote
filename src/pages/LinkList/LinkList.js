@@ -5,29 +5,10 @@ import styled from 'styled-components';
 import SubmitLinkButton from 'components/SubmitLinkButton';
 import List from 'components/List';
 import DeleteModal from 'components/DeleteModal';
-import Select from 'components/Select';
 import Pagination from 'components/Pagination';
+import FilterSection from './FilterSection';
 
-import {
-  voteLink,
-  deleteLink,
-  sortLinks,
-  changePage,
-  fetchLinks,
-  changePerPage,
-} from 'store/links/actions';
-
-const filterOptions = [
-  { value: 'lastAdded', label: 'Last Added' },
-  { value: 'mostVoted', label: 'Most Voted' },
-  { value: 'lessVoted', label: 'Less Voted' },
-];
-
-const perPageOptions = [
-  { value: '5', label: '5' },
-  { value: '10', label: '10' },
-  { value: '20', label: '20' },
-];
+import { voteLink, deleteLink, changePage, fetchLinks } from 'store/links/actions';
 
 class LinkList extends Component {
   state = {
@@ -39,12 +20,8 @@ class LinkList extends Component {
     this.props.changePage(page);
   };
 
-  upVote = link => {
-    this.props.voteLink({ link, voteType: 'up' });
-  };
-
-  downVote = link => {
-    this.props.voteLink({ link, voteType: 'down' });
+  voteLink = (link, voteType) => {
+    this.props.voteLink({ link, voteType });
   };
 
   deleteItem = () => {
@@ -61,19 +38,9 @@ class LinkList extends Component {
     this.setState({ showModal: false });
   };
 
-  handleSelectOrder = event => {
-    const orderBy = event.target.value;
-    this.props.sortLinks(orderBy);
-  };
-
-  handleSelectPerPage = event => {
-    const perPage = event.target.value;
-    this.props.changePerPage(perPage);
-  };
-
   render() {
     const {
-      links: { data, orderBy, totalItems, currentPage, perPage },
+      links: { data, totalItems, currentPage, perPage },
     } = this.props;
     const { showModal, link } = this.state;
 
@@ -83,16 +50,8 @@ class LinkList extends Component {
       <div>
         <SubmitLinkButton />
         <Divider />
-        <FilterArea>
-          <Select options={filterOptions} value={orderBy} onChange={this.handleSelectOrder} />
-          <Select options={perPageOptions} value={perPage} onChange={this.handleSelectPerPage} />
-        </FilterArea>
-        <List
-          data={rowsPerPage}
-          upVote={this.upVote}
-          downVote={this.downVote}
-          deleteItem={this.onShowModal}
-        />
+        <FilterSection />
+        <List data={rowsPerPage} voteLink={this.voteLink} deleteItem={this.onShowModal} />
         <Pagination
           totalItems={totalItems}
           perPage={perPage}
@@ -117,17 +76,9 @@ const mapStateToProps = ({ links }) => ({
 export default connect(mapStateToProps, {
   voteLink,
   deleteLink,
-  sortLinks,
   changePage,
-  changePerPage,
   fetchLinks,
 })(LinkList);
-
-const FilterArea = styled.div`
-  display: flex;
-  margin: 10px;
-  justify-content: space-between;
-`;
 
 const Divider = styled.hr`
   background-color: ${props => props.theme.borderColor};

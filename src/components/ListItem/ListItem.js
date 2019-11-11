@@ -3,11 +3,11 @@ import styled, { withTheme } from 'styled-components';
 import Box from '../Box';
 import { UpIcon, DownIcon, DeleteIcon } from '../Icons';
 
-function ListItem({ item, upVote, downVote, deleteItem, theme }) {
+function ListItem({ item, voteLink, deleteItem, theme }) {
   return (
     <Container>
       <DeleteButton onClick={() => deleteItem(item)}>
-        <DeleteIcon width={25} height={25} color={theme.deleteIcon}/>
+        <DeleteIcon width={25} height={25} color={theme.deleteIcon} />
       </DeleteButton>
       <Box label="POINTS" value={item.points} />
       <Content>
@@ -16,10 +16,10 @@ function ListItem({ item, upVote, downVote, deleteItem, theme }) {
           <Url>({item.url})</Url>
         </Info>
         <ActionButtons>
-          <Vote type="up" onClick={() => upVote(item)}>
+          <Vote type="up" onClick={() => voteLink(item, 'up')}>
             <UpIcon /> Up Vote
           </Vote>
-          <Vote type="down" onClick={() => downVote(item)}>
+          <Vote type="down" onClick={() => voteLink(item, 'down')}>
             <DownIcon /> Down Vote
           </Vote>
         </ActionButtons>
@@ -90,7 +90,7 @@ const DeleteButton = styled.div`
   right: -5px;
   opacity: 0;
   cursor: pointer;
-  
+
   ${Container}:hover & {
     opacity: 1;
   }
