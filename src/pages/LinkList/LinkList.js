@@ -44,7 +44,8 @@ class LinkList extends Component {
     } = this.props;
     const { showModal, link } = this.state;
 
-    const rowsPerPage = data.slice(currentPage - 1, perPage);
+    const index = (currentPage - 1) * perPage;
+    const rowsPerPage = data.slice(index, index + perPage);
 
     return (
       <div>

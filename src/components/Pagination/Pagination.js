@@ -3,21 +3,34 @@ import styled, { css } from 'styled-components';
 
 import { LeftIcon, RightIcon } from 'components/Icons';
 
+
 function renderPageNumbers(pageCount, perPage, currentPage, onChange) {
   let paginationItems = [];
+  let range = 5;
+  let startIndex = 1;
 
-  for (let i = 1; i <= pageCount; i++) {
+  if (currentPage < range / 2 + 1) {
+    startIndex = 1;
+  } else if (currentPage >= pageCount - range / 2) {
+    startIndex = Math.floor(pageCount - range + 1);
+  } else {
+    startIndex = currentPage - Math.floor(range / 2);
+  }
+
+  for (let i = startIndex; i <= startIndex + range - 1; i++) {
     paginationItems.push(
       <Link href="#" key={`page_${i}`} active={currentPage === i} onClick={() => onChange(i)}>
         {i}
       </Link>,
     );
   }
+
   return paginationItems;
 }
 
 function Pagination({ totalItems, perPage, currentPage, onChange }) {
   const pageCount = Math.ceil(totalItems / perPage);
+
   return (
     <Container>
       <Link
