@@ -17,11 +17,17 @@ function sortLinks(state, action) {
   return { ...state, orderBy, data };
 }
 
+function changePage(state, action) {
+  const currentPage = action.params;
+
+  return { ...state, currentPage };
+}
+
 function addLink(state, action) {
   const data = [action.params, ...state.data];
 
   message(`<b>${action.params.name}</b> Eklendi`);
-  return { ...state, data };
+  return { ...state, data, totalItems: data.length };
 }
 
 function voteLink(state, action) {
@@ -49,13 +55,7 @@ function deleteLink(state, action) {
   });
 
   message(`<b>${link.name}</b> Silindi`);
-  return { ...state, data };
+  return { ...state, data, totalItems: data.length };
 }
 
-
-export {
-    addLink,
-    sortLinks,
-    deleteLink,
-    voteLink
-}
+export { addLink, sortLinks, deleteLink, voteLink, changePage };

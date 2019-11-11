@@ -25,3 +25,8 @@ export const sortLinks = params => ({
   type: ActionTypes.SORT_LINKS,
   params,
 });
+
+export const changePage = params => ({
+  type: ActionTypes.CHANGE_PAGE,
+  params,
+});
