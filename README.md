@@ -7,7 +7,7 @@
  
 
 
-[LIVE](https://ahmetkuslular.github.io/github-api-react-example/)
+[DEMO](https://ahmetkuslular.github.io/react-link-vote/)
 
 ## How To Use
 
