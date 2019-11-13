@@ -1,6 +1,6 @@
 import toastr from 'toastr';
 
-const showMessage = (message) => {
+const showMessage = (message, type) => {
   toastr.options = {
     positionClass: 'toast-top-full-width',
     hideDuration: 300,
@@ -12,7 +12,12 @@ const showMessage = (message) => {
     hideMethod: 'fadeOut',
   };
   toastr.clear();
-  setTimeout(() => toastr.success(message), 300);
+  console.log('type',type);
+  if (type === 'error') {
+    setTimeout(() => toastr.error(message), 300);
+  } else {
+    setTimeout(() => toastr.success(message), 300);
+  }
 };
 
 export default showMessage;
