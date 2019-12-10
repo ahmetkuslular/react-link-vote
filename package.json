@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://ahmetkuslular.github.io/react-link-vote/",
   "dependencies": {
+    "date-fns": "^2.7.0",
     "gh-pages": "^2.1.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

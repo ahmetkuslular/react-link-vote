@@ -1,10 +1,12 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
+import { formatDistanceToNow } from 'date-fns';
 
 import Box from 'components/Box';
 import { UpIcon, DownIcon, DeleteIcon } from 'components/Icons';
 
 function ListItem({ item, voteLink, deleteItem, theme }) {
+  const date = formatDistanceToNow(item.id);
   return (
     <Container>
       <DeleteButton onClick={() => deleteItem(item)}>
@@ -13,14 +15,18 @@ function ListItem({ item, voteLink, deleteItem, theme }) {
       <Box label="POINTS" value={item.points} />
       <Content>
         <Info>
-          <Name>{item.name}</Name>
+          <LabelWrapper>
+            <Name>{item.name}</Name>
+            <Date>{date}</Date>
+          </LabelWrapper>
+
           <Url>({item.url})</Url>
         </Info>
         <ActionButtons>
           <Vote type="up" onClick={() => voteLink(item, 'up')}>
             <UpIcon /> Up Vote
           </Vote>
-          <Vote type="down" onClick={() => voteLink(item, 'down')}>
+          <Vote type="down" onClick={() => voteLink(item, 'down')} disabled={item.points < 1}>
             <DownIcon /> Down Vote
           </Vote>
         </ActionButtons>
@@ -83,6 +89,14 @@ const Vote = styled.span`
   &:hover {
     color: ${props => props.theme[`${props.type}Vote`]};
   }
+  ${props =>
+    props.disabled &&
+    `
+    cursor: not-allowed;
+    color: #aaa;
+    pointer-events: none;
+    
+  `}
 `;
 
 const DeleteButton = styled.div`
@@ -95,4 +109,15 @@ const DeleteButton = styled.div`
   ${Container}:hover & {
     opacity: 1;
   }
+`;
+
+const LabelWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Date = styled.span`
+  margin-left: 10px;
+  font-size: 15px;
+  color: ${props => props.theme.url};
 `;

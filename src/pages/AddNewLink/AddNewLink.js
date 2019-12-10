@@ -55,6 +55,10 @@ class AddNewLink extends Component {
     if (name === '') errors.name = '<b>Name</b> alanı boş bırakılamaz!';
     if (url === '') errors.url = '<b>Url</b> alanı boş bırakılamaz!';
 
+    if(!(/^(ftp|http|https):\/\/[^ "]+$/.test(url))){
+      errors.url = '<b>Url</b> alanı yanlış formatta!';
+    }
+
     return errors;
   };
 
